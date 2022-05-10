@@ -2,7 +2,7 @@
 
 <a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
-# Configurable Custom Logic (CCL) in Three Different Modes Using the AVR64DD32 Microcontroller
+# Configurable Custom Logic (CCL) in Three Different Modes Using the AVR64DD32 Microcontroller Generated with MCC Melody
 
 <br>The repository contains three MPLAB® X projects:
 
@@ -44,26 +44,27 @@ The following configurations must be made for this project:
 System clock: 4 MHz (default)
 
 CCL - LUT1:
--   LUT: enabled
--   LUT-IN0: IN0 selected
--   LUT-IN1: IN1 selected
--   LUT-IN2: IN2 selected
--   LUT output: enabled
--   Truth table = 0x80
--   CCL: enabled
 
-| Pin            |  Configuration    |
-| :------------: | :---------------: |
-| PC0 (LUT1-IN0) |   Digital input   |
-| PC1 (LUT1-IN1) |   Digital input   |
-| PC2 (LUT1-IN2) |   Digital input   |
-| PC3 (LUT1-OUT) |   Digital output  |
+- LUT: enabled
+- LUT-IN0: IN0 selected
+- LUT-IN1: IN1 selected
+- LUT-IN2: IN2 selected
+- LUT output: enabled
+- Truth table = 0x80
+- CCL: enabled
+
+|      Pin       | Configuration  |
+| :------------: | :------------: |
+| PC0 (LUT1-IN0) | Digital input  |
+| PC1 (LUT1-IN1) | Digital input  |
+| PC2 (LUT1-IN2) | Digital input  |
+| PC3 (LUT1-OUT) | Digital output |
 
 ### 1.2 Demo
 
 The table below shows the truth table for an AND gate with three inputs:
 
-|   IN0  |   IN1  |   IN2  |   OUT  |
+|  IN0   |  IN1   |  IN2   |  OUT   |
 | :----: | :----: | :----: | :----: |
 | `LOW`  | `LOW`  | `LOW`  | `LOW`  |
 | `LOW`  | `LOW`  | `HIGH` | `LOW`  |
@@ -81,7 +82,7 @@ The picture below shows how the output (PC3) changes according to the gate input
 ### 1.3 Summary
 
 This project shows how to configure the Analog-to-Digital (ADC) peripheral to execute conversions every time a certain event happens. In this example, the Real-Time Clock (RTC) overflow (at 500 ms) is used as an event generator. Every time a conversion cycle is triggered, the on-board LED is toggled to signal the end of a conversion.<br><br>
-[Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller)<br>
+[Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller-generated-with-mcc-melody)<br>
 
 ## 2. SR Latch
 
@@ -94,29 +95,30 @@ The following configurations must be made for this project:
 System clock: 4 MHz (default)
 
 CCL:
--   CCL: enabled
--   LUT0:
-    -   LUT0-IN0: Masked
-    -   LUT0-IN1: IN1
-    -   LUT0-IN2: Masked
-    -   Truth table = 0x01
-    -   Output: enabled
-    -   Filter: enabled
-    -   LUT0: enabled
--   LUT1:
-    -   LUT1-IN0: Masked
-    -   LUT1-IN1: IN1
-    -   LUT1-IN2: Masked
-    -   Truth table = 0x01
-    -   Filter: enabled
-    -   LUT1: enabled
--   Sequencer selected: RS
 
-| Pin            |  Configuration   | SR Latch          |
-| :------------: | :--------------: |:--------------:   |
-| PA1 (LUT0-IN1) |   Digital input  | SET               |
-| PC1 (LUT1-IN1) |   Digital input  | RESET             |
-| PA3 (LUT0-OUT) |   Digital output | Output            |
+- CCL: enabled
+- LUT0:
+  - LUT0-IN0: Masked
+  - LUT0-IN1: IN1
+  - LUT0-IN2: Masked
+  - Truth table = 0x01
+  - Output: enabled
+  - Filter: enabled
+  - LUT0: enabled
+- LUT1:
+  - LUT1-IN0: Masked
+  - LUT1-IN1: IN1
+  - LUT1-IN2: Masked
+  - Truth table = 0x01
+  - Filter: enabled
+  - LUT1: enabled
+- Sequencer selected: RS
+
+|      Pin       | Configuration  | SR Latch |
+| :------------: | :------------: | :------: |
+| PA1 (LUT0-IN1) | Digital input  |   SET    |
+| PC1 (LUT1-IN1) | Digital input  |  RESET   |
+| PA3 (LUT0-OUT) | Digital output |  Output  |
 
 (PA1) is not connected by default on the CNANO board.
 The user must connect them through soldering on the back of the board where it is written PA1.
@@ -125,12 +127,12 @@ The user must connect them through soldering on the back of the board where it i
 
 In this example, an active-low SR latch was implemented, having the following truth table:
 
-| Set     | Reset   | Output            |
-| :-----: | :-----: | :---------------: |
-| `HIGH`  | `HIGH`  | `Hold State`      |
-| `HIGH`  | `LOW`   | `Clear`           |
-| `LOW`   | `HIGH`  | `Set`             |
-| `LOW`   | `LOW`   | `Forbidden State` |
+|  Set   | Reset  |      Output       |
+| :----: | :----: | :---------------: |
+| `HIGH` | `HIGH` |   `Hold State`    |
+| `HIGH` | `LOW`  |      `Clear`      |
+| `LOW`  | `HIGH` |       `Set`       |
+| `LOW`  | `LOW`  | `Forbidden State` |
 
 The picture below shows how the output of the sequencer (PA3) changes according to the active-low SR latch behaviour.
 
@@ -139,7 +141,7 @@ The picture below shows how the output of the sequencer (PA3) changes according 
 ### 2.3 Summary
 
 This code example shows how to configure the CCL peripheral to implement a SR latch.<br><br>
-[Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller)<br>
+[Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller-generated-with-mcc-melody)<br>
 
 ## 3. State Decoder
 
@@ -152,29 +154,30 @@ The following configurations must be made for this project:
 System clock: 4 MHz (default)
 
 CCL:
--   CCL: enabled
--   LUT0:
-    -   LUT0-IN0: IN0
-    -   LUT0-IN1: IN1
-    -   LUT0-IN2: LINK
-    -   Truth table = 0x40
-    -   Output: enabled
-    -   LUT0: enabled
--   LUT1:
-    -   LUT1-IN0: IN0
-    -   LUT1-IN1: IN1
-    -   LUT1-IN2: IN2
-    -   Truth table = 0x20
-    -   LUT1: enabled
 
-| Pin            |  Configuration   |
-| :------------: | :--------------: |
-| PA0 (LUT0-IN0) |   Digital input  |
-| PA1 (LUT0-IN1) |   Digital input  |
-| PC0 (LUT1-IN0) |   Digital input  |
-| PC1 (LUT1-IN1) |   Digital input  |
-| PC2 (LUT1-IN2) |   Digital input  |
-| PA3 (LUT0-OUT) |   Digital output |
+- CCL: enabled
+- LUT0:
+  - LUT0-IN0: IN0
+  - LUT0-IN1: IN1
+  - LUT0-IN2: LINK
+  - Truth table = 0x40
+  - Output: enabled
+  - LUT0: enabled
+- LUT1:
+  - LUT1-IN0: IN0
+  - LUT1-IN1: IN1
+  - LUT1-IN2: IN2
+  - Truth table = 0x20
+  - LUT1: enabled
+
+|      Pin       | Configuration  |
+| :------------: | :------------: |
+| PA0 (LUT0-IN0) | Digital input  |
+| PA1 (LUT0-IN1) | Digital input  |
+| PC0 (LUT1-IN0) | Digital input  |
+| PC1 (LUT1-IN1) | Digital input  |
+| PC2 (LUT1-IN2) | Digital input  |
+| PA3 (LUT0-OUT) | Digital output |
 
 PA0 and PA1 are not connected by default on the CNANO board.
 The user must connect them through soldering on the back of the board where it is written PA0 and PA1.
@@ -183,7 +186,7 @@ The user must connect them through soldering on the back of the board where it i
 
 The pattern that needs to be decoded is `b'10110`:
 
-| Pin            | Value      |
+|      Pin       |   Value    |
 | :------------: | :--------: |
 | PC2 (LUT1_IN2) | `1` - HIGH |
 | PC1 (LUT1_IN1) | `0` - LOW  |
@@ -198,9 +201,7 @@ The picture below shows how the output (PA3) goes high when the pattern is detec
 ### 3.3 Summary
 
 This code example shows how to configure the CCL peripheral to implement a state decoder.<br><br>
-[Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller)<br>
-
-
+[Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller-generated-with-mcc-melody)<br>
 
 ## How to Program the Curiosity Nano board
 
@@ -233,4 +234,4 @@ This chapter demonstrates how to use the MPLAB® X IDE to program an AVR® devic
 - [Back to 1. Logic AND Gate](#1-logic-and-gate)
 - [Back to 2. SR Latch](#2-sr-latch)
 - [Back to 3. State Decoder](#3-state-decoder)
-- [Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller)
+- [Back to top](#configurable-custom-logic-ccl-in-three-different-modes-using-the-avr64dd32-microcontroller-generated-with-mcc-melody)
